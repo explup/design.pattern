@@ -1,3 +1,4 @@
+using Design.Pattern.CreationalPatterns;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Design.Pattern.Tests
@@ -15,6 +16,14 @@ namespace Design.Pattern.Tests
         [TestCategory("CreationalPatterns")]
         public void BuilderTest()
         {
+            VehicleBuilder builder = new VehicleBuilder();
+            Vehicle vehicle = builder.AddLicensePlate("Lic")
+                                     .AddMark("mark")
+                                     .ToVehicle();
+
+            Assert.AreEqual("Lic", vehicle.LicensePlate);
+            Assert.AreEqual("mark", vehicle.Mark);
+
         }
 
         [TestMethod]
