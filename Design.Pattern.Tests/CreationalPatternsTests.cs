@@ -30,6 +30,12 @@ namespace Design.Pattern.Tests
         [TestCategory("CreationalPatterns")]
         public void FactoryMethodTest()
         {
+            IProductFactory factory = new ProductFactoryImpl();
+            IProduct computer = factory.CreateProduct("Computer");
+            Assert.AreEqual(0.02M, computer.GetTaxPercentage());
+
+            IProduct food = factory.CreateProduct("Food");
+            Assert.AreEqual(0.01M, food.GetTaxPercentage());
         }
 
         [TestMethod]
