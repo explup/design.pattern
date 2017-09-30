@@ -1,3 +1,4 @@
+using Design.Pattern.CreationalPatterns;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Design.Pattern.Tests
@@ -15,6 +16,17 @@ namespace Design.Pattern.Tests
         [TestCategory("BehavioralPatternsTest")]
         public void CommandTest()
         {
+            ICommand cluthonCommand = new ClutchOnCommand();
+            cluthonCommand.Do();
+
+            ICommand motorCommand = new MetorOnCommand();
+            motorCommand.Do();
+
+
+            //example2
+            ITransaction transaction = new AddEmployeeTransaction(new SalariedClassification());
+            transaction.Validate();
+            transaction.Execute(); 
         }
 
         [TestMethod]
